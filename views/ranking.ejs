@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <%- include('partials/head') %>
+
+    <body style="background-image:url('/icons/background.png'); padding: 0 0 0 0;background-position: top;">
+        <div style="background-color: rgba(0,0,0,0.4); height: 7vh">
+            <h1 style="text-align: center; color: white; padding-top: 1vh">Top 10 Charts</h1>
+        </div>
+        
+
+        <div class="container py-3">
+                <% for(var i=0; i < 10; i++){ %>
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img class="card-img-top" style="max-height: 40vh;" src=<%= celebs[i].url %> alt=<%= celebs[i].name %>>
+                                </div>
+                                <div class="col-md-8 px-3">
+                                    <div class="card-block px-3">
+                                        <h5 class="card-title"> <%= i+1 %>. <%= celebs[i].name %></h5>                                
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </div>
+                <% } %>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<%- include('partials/head') %>
+
+	<body style="background-image:url('/icons/background.png'); padding: 0 0 0 0;background-position: top;">
+		<div class="row" style="background-color: rgba(185,0,0,0.95); height: 10vh;">
+			<div class="col-12">
+				<h1 style="padding-top:10px;font-size: 55px; letter-spacing: 5px; color: black; "> Who will emerge as the most popular celebrity?</h1>
+			</div>
+		</div>
+		<div class="row" style="padding-top: 1vh;">
+			<div class="col-12" style="background-color: rgba(0,0,0,0.4)">
+				<h2 style="text-align: center;">Click on a picture to vote</h2>	
+			</div>
+			<div class="col-sm-12" style="padding-top: 3vh">
+				<%- include('partials/options', {celeb1: celeb1, celeb2: celeb2}) %>
+			</div>
+			<a class="btn btn-primary btn-lg" href="/" style="position:absolute; left:10vw; bottom:10vh;">Refresh</a>
+			<a class="btn btn-danger btn-lg" href="/rankings" style="position:absolute; right:10vw; bottom:10vh;">Top 10</a>
+		</div>
+
+	</body>
+
+</html>

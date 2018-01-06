@@ -1,0 +1,71 @@
+<div>
+
+    <div class="row">
+        <div class="col-sm-12 col-lg-5 ">
+            <div class="choice mx-auto choice1" style="max-width: 50%; display: block;">
+                <h2><%= celeb1.name %></h2>
+                <img class="celeb celeb1 mx-auto" src=<%= celeb1.url %> alt=<%= celeb1._id %>>
+            </div>
+        </div>
+        <dic class="col-sm-12 col-lg-2"></dic>
+        <div class="col-sm-12 col-lg-5 ">
+            <div class="choice mx-auto choice2" style="max-width: 50%; display: block;">
+                <h2><%= celeb2.name %></h2>
+                <img class="celeb celeb2 mx-auto" src=<%= celeb2.url %> alt=<%= celeb2._id %>>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .celeb {
+        max-height: 50vh;
+        max-width: 100%;
+        display: block;
+        padding: 0vh 1vw 1vh 1vw;
+    }
+    .choice:hover {
+        border: solid 5px black;
+        box-shadow: 10px 5px 100px black;
+    }
+
+    h1,h2,h3 {
+        text-align: center;
+        color: white;
+    }
+
+    .choice {
+        margin: 0px;
+        border: 2px black solid;
+        border-radius: 5px;
+        background-color: grey;
+    }
+
+</style>
+
+<script>
+    $(document).ready(function(){
+
+        $(".choice1").on('click', function(){
+            console.log("Sending Vote..");
+            $.post("/api/update", {
+                winner: $(".celeb1").attr("alt"),
+                loser: $(".celeb2").attr("alt")
+            }, function(data){
+                location.reload();
+            });
+        });
+
+        $(".choice2").on('click', function () {
+            console.log("Sending Vote..");            
+            $.post("/api/update", {
+                winner: $(".celeb2").attr("alt"),
+                loser: $(".celeb1").attr("alt")
+            }, function (data) {
+                location.reload();
+            });
+        })
+
+    });
+</script>
